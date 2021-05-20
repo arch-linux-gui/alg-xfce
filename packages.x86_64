@@ -105,18 +105,32 @@ xl2tpd
 zsh
 
 #Arch Linux GUI XFCE
-xfce4
 xorg-server
 lightdm
 lightdm-gtk-greeter
+xfce4
+xfce4-goodies
 xdg-user-dirs
 bash-completion
 networkmanager
 network-manager-applet
-mousepad
+gvfs
 
 #Installer
 grub
 calamares
 alg-xfce-cala-config
 os-prober
+
+#browser
+firefox
+
+#media player
+vlc
+
+#Icons & Themes
+tela-circle-icon
+qogir-gtk-theme-git
+
+#officesuite
+libreoffice-fresh
