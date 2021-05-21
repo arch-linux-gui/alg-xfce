@@ -115,6 +115,7 @@ bash-completion
 networkmanager
 network-manager-applet
 gvfs
+neofetch
 
 #Installer
 grub
@@ -134,3 +135,5 @@ qogir-gtk-theme-git
 
 #officesuite
 libreoffice-fresh
+ttf-ms-fonts
+ttf-roboto

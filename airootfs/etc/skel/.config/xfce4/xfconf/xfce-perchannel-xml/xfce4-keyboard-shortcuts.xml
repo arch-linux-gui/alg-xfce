@@ -50,14 +50,19 @@
       <property name="&lt;Primary&gt;&lt;Alt&gt;t" type="string" value="exo-open --launch TerminalEmulator"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;f" type="string" value="thunar"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;l" type="string" value="xflock4"/>
-      <property name="&lt;Super&gt;p" type="string" value="xfce4-display-settings --minimal"/>
+      <property name="&lt;Alt&gt;F1" type="string" value="xfce4-popup-applicationsmenu"/>
       <property name="&lt;Primary&gt;&lt;Shift&gt;Escape" type="string" value="xfce4-taskmanager"/>
       <property name="&lt;Super&gt;e" type="string" value="thunar"/>
       <property name="&lt;Primary&gt;&lt;Alt&gt;Escape" type="string" value="xkill"/>
       <property name="HomePage" type="string" value="exo-open --launch WebBrowser"/>
       <property name="XF86Display" type="string" value="xfce4-display-settings --minimal"/>
       <property name="override" type="bool" value="true"/>
-      <property name="Super_L" type="string" value="xfce4-popup-applicationsmenu"/>
+      <property name="&lt;Alt&gt;b" type="string" value="firefox"/>
+      <property name="&lt;Alt&gt;v" type="string" value="vlc"/>
+      <property name="&lt;Primary&gt;&lt;Shift&gt;&lt;Alt&gt;r" type="string" value="reboot"/>
+      <property name="&lt;Primary&gt;&lt;Alt&gt;s" type="string" value="systemctl suspend"/>
+      <property name="&lt;Primary&gt;d" type="string" value="xfce4-display-settings --minimal"/>
+      <property name="Super_L" type="string" value="xfce4-popup-whiskermenu"/>
     </property>
   </property>
   <property name="xfwm4" type="empty">

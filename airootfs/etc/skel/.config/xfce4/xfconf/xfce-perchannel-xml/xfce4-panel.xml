@@ -13,9 +13,9 @@
       <property name="size" type="uint" value="26"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="7"/>
-        <value type="int" value="1"/>
-        <value type="int" value="8"/>
-        <value type="int" value="15"/>
+        <value type="int" value="16"/>
+        <value type="int" value="17"/>
+        <value type="int" value="18"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="4"/>
@@ -28,7 +28,6 @@
         <value type="int" value="13"/>
         <value type="int" value="14"/>
       </property>
-      <property name="mode" type="uint" value="0"/>
     </property>
   </property>
   <property name="plugins" type="empty">
@@ -49,36 +48,31 @@
         <value type="string" value="thunar"/>
         <value type="string" value="networkmanager applet"/>
       </property>
-      <property name="known-items" type="array">
-        <value type="string" value="vlc"/>
-      </property>
     </property>
     <property name="plugin-9" type="string" value="power-manager-plugin"/>
     <property name="plugin-10" type="string" value="notification-plugin"/>
     <property name="plugin-11" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
-    <property name="plugin-12" type="string" value="clock">
-      <property name="mode" type="uint" value="2"/>
-    </property>
+    <property name="plugin-12" type="string" value="clock"/>
     <property name="plugin-13" type="string" value="separator">
       <property name="style" type="uint" value="0"/>
     </property>
     <property name="plugin-14" type="string" value="actions"/>
     <property name="plugin-7" type="string" value="whiskermenu"/>
-    <property name="plugin-1" type="string" value="launcher">
+    <property name="plugin-16" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215039831.desktop"/>
+        <value type="string" value="16215619225.desktop"/>
       </property>
     </property>
-    <property name="plugin-8" type="string" value="launcher">
+    <property name="plugin-17" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215039922.desktop"/>
+        <value type="string" value="16215619296.desktop"/>
       </property>
     </property>
-    <property name="plugin-15" type="string" value="launcher">
+    <property name="plugin-18" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215040003.desktop"/>
+        <value type="string" value="16215619317.desktop"/>
       </property>
     </property>
   </property>

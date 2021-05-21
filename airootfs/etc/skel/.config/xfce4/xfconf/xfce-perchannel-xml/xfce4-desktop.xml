@@ -25,11 +25,6 @@
           <property name="last-image" type="string" value="/usr/share/backgrounds/xfce/xfce-verticals.png"/>
         </property>
       </property>
-      <property name="monitor0" type="empty">
-        <property name="image-path" type="string" value="/usr/share/backgrounds/xfce/wall.png"/>
-        <property name="image-show" type="bool" value="true"/>
-        <property name="image-style" type="int" value="0"/>
-      </property>
     </property>
   </property>
   <property name="last" type="empty">
