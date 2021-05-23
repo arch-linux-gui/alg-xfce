@@ -116,6 +116,7 @@ networkmanager
 network-manager-applet
 gvfs
 neofetch
+galculator
 
 #Installer
 grub
