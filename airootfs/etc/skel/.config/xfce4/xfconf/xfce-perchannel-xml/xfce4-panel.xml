@@ -13,9 +13,9 @@
       <property name="size" type="uint" value="26"/>
       <property name="plugin-ids" type="array">
         <value type="int" value="7"/>
-        <value type="int" value="16"/>
-        <value type="int" value="17"/>
-        <value type="int" value="18"/>
+        <value type="int" value="1"/>
+        <value type="int" value="8"/>
+        <value type="int" value="15"/>
         <value type="int" value="2"/>
         <value type="int" value="3"/>
         <value type="int" value="4"/>
@@ -45,7 +45,6 @@
     <property name="plugin-6" type="string" value="systray">
       <property name="square-icons" type="bool" value="true"/>
       <property name="known-legacy-items" type="array">
-        <value type="string" value="thunar"/>
         <value type="string" value="networkmanager applet"/>
       </property>
     </property>
@@ -60,19 +59,19 @@
     </property>
     <property name="plugin-14" type="string" value="actions"/>
     <property name="plugin-7" type="string" value="whiskermenu"/>
-    <property name="plugin-16" type="string" value="launcher">
+    <property name="plugin-1" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215619225.desktop"/>
+        <value type="string" value="16217589421.desktop"/>
       </property>
     </property>
-    <property name="plugin-17" type="string" value="launcher">
+    <property name="plugin-8" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215619296.desktop"/>
+        <value type="string" value="16217589512.desktop"/>
       </property>
     </property>
-    <property name="plugin-18" type="string" value="launcher">
+    <property name="plugin-15" type="string" value="launcher">
       <property name="items" type="array">
-        <value type="string" value="16215619317.desktop"/>
+        <value type="string" value="16217589573.desktop"/>
       </property>
     </property>
   </property>
