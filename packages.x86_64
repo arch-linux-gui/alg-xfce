@@ -140,5 +140,8 @@ libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
 
+#printing
+cups
+
 #AUR Helper
 paru
