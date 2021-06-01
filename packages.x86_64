@@ -112,6 +112,9 @@ xdg-user-dirs
 bash-completion
 networkmanager
 network-manager-applet
+base-devel
+
+#applications
 gvfs
 neofetch
 galculator
