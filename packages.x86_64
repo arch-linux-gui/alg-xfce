@@ -113,6 +113,7 @@ bash-completion
 networkmanager
 network-manager-applet
 base-devel
+pacman-contrib
 
 #applications
 gvfs
