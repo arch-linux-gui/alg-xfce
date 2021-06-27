@@ -115,10 +115,20 @@ network-manager-applet
 base-devel
 pacman-contrib
 
+#audio
+alsa-firmware
+alsa-plugins
+alsa-lib
+alsa-utils
+pulseaudio
+pulseaudio-alsa
+pavucontrol
+
 #applications
 gvfs
 neofetch
 galculator
+xdotools
 
 #Installer
 grub
