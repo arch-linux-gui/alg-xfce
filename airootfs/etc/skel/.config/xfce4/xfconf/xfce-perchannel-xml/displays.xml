@@ -3,14 +3,14 @@
 <channel name="displays" version="1.0">
   <property name="ActiveProfile" type="string" value="Default"/>
   <property name="Default" type="empty">
-    <property name="HDMI-1" type="string" value="PZG 17&quot;">
+    <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="5130092ca775478a1f2ef28fa20c8fb0568d04be"/>
-      <property name="Resolution" type="string" value="1600x900"/>
-      <property name="RefreshRate" type="double" value="60.000000"/>
+      <property name="EDID" type="string" value="fc51dc45eb451e58291ea43cb023a19f5f7812a4"/>
+      <property name="Resolution" type="string" value="1366x768"/>
+      <property name="RefreshRate" type="double" value="59.998545"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="false"/>
+      <property name="Primary" type="bool" value="true"/>
       <property name="Scale" type="empty">
         <property name="X" type="double" value="1.000000"/>
         <property name="Y" type="double" value="1.000000"/>
@@ -22,14 +22,14 @@
     </property>
   </property>
   <property name="Fallback" type="empty">
-    <property name="HDMI-1" type="string" value="PZG 17&quot;">
+    <property name="eDP-1" type="string" value="Laptop">
       <property name="Active" type="bool" value="true"/>
-      <property name="EDID" type="string" value="5130092ca775478a1f2ef28fa20c8fb0568d04be"/>
-      <property name="Resolution" type="string" value="1600x900"/>
-      <property name="RefreshRate" type="double" value="60.000000"/>
+      <property name="EDID" type="string" value="fc51dc45eb451e58291ea43cb023a19f5f7812a4"/>
+      <property name="Resolution" type="string" value="1366x768"/>
+      <property name="RefreshRate" type="double" value="59.998545"/>
       <property name="Rotation" type="int" value="0"/>
       <property name="Reflection" type="string" value="0"/>
-      <property name="Primary" type="bool" value="false"/>
+      <property name="Primary" type="bool" value="true"/>
       <property name="Scale" type="empty">
         <property name="X" type="double" value="1.000000"/>
         <property name="Y" type="double" value="1.000000"/>

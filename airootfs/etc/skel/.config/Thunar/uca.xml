@@ -1,21 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <actions>
 <action>
-	<icon>utilities-terminal</icon>
+	<icon>terminal</icon>
 	<name>Open Terminal Here</name>
-	<unique-id>1621757638101482-1</unique-id>
+	<unique-id>1624819824627808-1</unique-id>
 	<command>exo-open --working-directory %f --launch TerminalEmulator</command>
-	<description>Example for a custom action</description>
+	<description>Open Xfce4 Terminal In Current Directory</description>
 	<patterns>*</patterns>
 	<startup-notify/>
 	<directories/>
 </action>
 <action>
 	<icon>krusader_root</icon>
-	<name>Open Thunar as Root</name>
-	<unique-id>1621758597698457-1</unique-id>
+	<name>Open Thunar As Root</name>
+	<unique-id>1624821934392754-1</unique-id>
 	<command>pkexec thunar %f</command>
-	<description>Open file browser as root user</description>
+	<description>Open File Browser as Root User</description>
+	<patterns>*</patterns>
+	<directories/>
+	<audio-files/>
+	<image-files/>
+	<other-files/>
+	<text-files/>
+	<video-files/>
+</action>
+<action>
+	<icon>view-hidden</icon>
+	<name>Show Hidden Files</name>
+	<unique-id>1624823324668515-1</unique-id>
+	<command>xdotool key &quot;ctrl+h&quot;</command>
+	<description>Show Files Starting With A Dot</description>
 	<patterns>*</patterns>
 	<directories/>
 	<audio-files/>

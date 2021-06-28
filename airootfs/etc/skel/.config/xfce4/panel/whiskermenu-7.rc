@@ -1,5 +1,5 @@
 favorites=xfce4-web-browser.desktop,xfce4-mail-reader.desktop,xfce4-file-manager.desktop,xfce4-terminal-emulator.desktop
-recent=galculator.desktop,mousepad.desktop,xfce-mouse-settings.desktop
+recent=galculator.desktop
 button-icon=archlinux-logo
 button-single-row=false
 show-button-title=false
