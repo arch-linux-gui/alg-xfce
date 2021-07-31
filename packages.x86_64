@@ -117,7 +117,6 @@ pacman-contrib
 xfce4
 xfce4-goodies
 alg-xfce-settings
-alg-browser-settings
 
 #audio
 alsa-firmware
@@ -142,6 +141,7 @@ os-prober
 
 #browser
 firefox
+alg-firefox-settings
 
 #media player
 vlc
