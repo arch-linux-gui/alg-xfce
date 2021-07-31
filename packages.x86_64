@@ -102,18 +102,22 @@ xfsprogs
 xl2tpd
 zsh
 
-#Arch Linux GUI XFCE
+#Arch Linux GUI XFCE Core
 xorg-server
 lightdm
 lightdm-gtk-greeter
-xfce4
-xfce4-goodies
 xdg-user-dirs
 bash-completion
 networkmanager
 network-manager-applet
 base-devel
 pacman-contrib
+
+#Arch Linux GUI XFCE
+xfce4
+xfce4-goodies
+alg-xfce-settings
+alg-browser-settings
 
 #audio
 alsa-firmware
@@ -153,6 +157,12 @@ ttf-roboto
 
 #printing
 cups
+system-config-printer
+
+#bluetooth
+bluez
+bluez-utils
+blueman
 
 #AUR Helper
 paru
