@@ -6,7 +6,6 @@ arch-install-scripts
 b43-fwcutter
 base
 bind-tools
-brltty
 broadcom-wl
 btrfs-progs
 clonezilla
@@ -103,7 +102,7 @@ xl2tpd
 zsh
 
 #Arch Linux GUI XFCE Core
-xorg-server
+xorg
 lightdm
 lightdm-gtk-greeter
 xdg-user-dirs
