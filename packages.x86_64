@@ -161,7 +161,6 @@ system-config-printer
 
 #bluetooth
 bluez
-bluez-utils
 blueman
 
 #AUR Helper
