@@ -135,7 +135,7 @@ xdotool
 #Installer
 grub
 calamares
-alg-xfce-cala-config
+alg-theme-cala-config
 os-prober
 
 #browser
@@ -154,7 +154,7 @@ libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
 ttf-indic-otf
-ttf-unifont
+bdf-unifont
 
 #printing
 cups
