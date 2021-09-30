@@ -3,7 +3,7 @@
 
 iso_name="archlinux-gui-xfce"
 iso_label="ARCH_GUI_XFCE_$(date +%Y%m)"
-iso_publisher="DemonKiller"
+iso_publisher="DemonKiller <https://archlinuxgui.in>"
 iso_application="Arch Linux GUI Live/Rescue CD"
 iso_version="$(date +%Y.%m)"
 install_dir="arch"
@@ -20,4 +20,5 @@ file_permissions=(
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
   ["/usr/local/bin/copytoram"]="0:0:755"
+  ["/usr/local/bin/remove-nvidia"]="0:0:755"
 )

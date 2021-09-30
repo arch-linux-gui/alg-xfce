@@ -166,3 +166,8 @@ blueman
 
 #AUR Helper
 paru
+
+#NVIDIA drivers & settings
+nvidia
+nvidia-utils
+nvidia-settings
