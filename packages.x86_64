@@ -154,7 +154,7 @@ libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
 ttf-indic-otf
-bdf-unifont
+ttf-unifont
 
 #printing
 cups
