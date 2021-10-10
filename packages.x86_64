@@ -153,8 +153,7 @@ qogir-gtk-theme-git
 libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
-ttf-indic-otf
-ttf-unifont
+noto-fonts
 
 #printing
 cups
