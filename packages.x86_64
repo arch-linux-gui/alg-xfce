@@ -115,6 +115,7 @@ pacman-contrib
 #Arch Linux GUI XFCE
 xfce4
 xfce4-goodies
+xf86-video-intel
 alg-xfce-settings
 
 #audio
