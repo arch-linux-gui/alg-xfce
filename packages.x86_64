@@ -111,6 +111,7 @@ networkmanager
 network-manager-applet
 base-devel
 pacman-contrib
+virtualbox-guest-utils
 
 #Arch Linux GUI XFCE
 xfce4
@@ -119,12 +120,9 @@ xf86-video-intel
 alg-xfce-settings
 
 #audio
-alsa-firmware
-alsa-plugins
-alsa-lib
-alsa-utils
 pulseaudio
 pulseaudio-alsa
+pulseaudio-bluetooth
 pavucontrol
 
 #applications
@@ -162,6 +160,7 @@ system-config-printer
 
 #bluetooth
 bluez
+bluez-utils
 blueman
 
 #AUR Helper
