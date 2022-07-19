@@ -154,6 +154,7 @@ libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
 noto-fonts
+noto-fonts-cjk
 
 #printing
 cups
