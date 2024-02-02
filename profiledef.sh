@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 # shellcheck disable=SC2034
 
-iso_name="archlinux-gui-xfce"
+iso_name="alg-xfce"
 iso_label="ARCH_GUI_XFCE_$(date +%Y%m)"
 iso_publisher="DemonKiller <https://archlinuxgui.in>"
 iso_application="Arch Linux GUI Live/Rescue CD"
