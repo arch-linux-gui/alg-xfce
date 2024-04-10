@@ -2,12 +2,12 @@
 # shellcheck disable=SC2034
 
 iso_name="alg-xfce"
-iso_label="ARCH_GUI_XFCE_$(date +%Y%m)"
+iso_label="ALG_XFCE_$(date +%Y%m)"
 iso_publisher="DemonKiller <https://archlinuxgui.in>"
-iso_application="Arch Linux GUI Live/Rescue CD"
+iso_application="ALG Live/Rescue CD"
 iso_version="$(date +%Y.%m)"
 install_dir="arch"
-bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito' 'uefi-x64.systemd-boot.esp' 'uefi-x64.systemd-boot.eltorito')
+bootmodes=('bios.syslinux.mbr' 'bios.syslinux.eltorito' 'uefi-ia32.grub.esp' 'uefi-x64.grub.esp' 'uefi-ia32.grub.eltorito' 'uefi-x64.grub.eltorito')
 arch="x86_64"
 pacman_conf="pacman.conf"
 airootfs_image_type="squashfs"
@@ -19,7 +19,6 @@ file_permissions=(
   ["/usr/local/bin/choose-mirror"]="0:0:755"
   ["/usr/local/bin/Installation_guide"]="0:0:755"
   ["/usr/local/bin/livecd-sound"]="0:0:755"
-  ["/usr/local/bin/copytoram"]="0:0:755"
   ["/usr/local/bin/alg-remove-nvidia"]="0:0:755"
   ["/usr/local/bin/alg-preset"]="0:0:755"
   ["/usr/local/bin/alg-finalisation"]="0:0:755"
