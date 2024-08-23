@@ -77,7 +77,7 @@ partimage
 ppp
 pptpclient
 reflector
-reiserfsprogs
+#reiserfsprogs
 rp-pppoe
 rsync
 sdparm
@@ -120,7 +120,10 @@ xfce4
 xfce4-goodies
 xf86-video-intel
 mugshot
+thunar-archive-plugin
+file-roller
 alg-xfce-settings
+alg-welcome
 
 #audio
 pulseaudio
@@ -130,7 +133,8 @@ pavucontrol
 
 #applications
 gvfs
-neofetch
+#neofetch
+fastfetch
 galculator
 xdotool
 
@@ -149,10 +153,10 @@ vlc
 
 #Icons & Themes
 tela-circle-icon
-qogir-gtk-theme-git
+alg-qogir-theme
 
 #officesuite
-libreoffice-fresh
+#libreoffice-fresh
 ttf-ms-fonts
 ttf-roboto
 noto-fonts
