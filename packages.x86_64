@@ -77,7 +77,7 @@ partimage
 ppp
 pptpclient
 reflector
-reiserfsprogs
+#reiserfsprogs
 rp-pppoe
 rsync
 sdparm
