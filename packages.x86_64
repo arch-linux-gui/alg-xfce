@@ -14,7 +14,7 @@ base
 broadcom-wl
 btrfs-progs
 clonezilla
-cloud-init
+#cloud-init
 cryptsetup
 darkhttpd
 ddrescue
@@ -172,7 +172,7 @@ bluez-utils
 blueman
 
 #AUR Helper
-paru
+yay
 
 #NVIDIA drivers & settings
 nvidia
