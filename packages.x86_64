@@ -103,7 +103,7 @@ xfsprogs
 xl2tpd
 zsh
 
-#Arch Linux GUI XFCE Core
+#ALG XFCE Core
 xorg
 lightdm
 lightdm-gtk-greeter
@@ -115,7 +115,7 @@ base-devel
 pacman-contrib
 virtualbox-guest-utils
 
-#Arch Linux GUI XFCE
+#ALG XFCE
 xfce4
 xfce4-goodies
 xf86-video-intel
@@ -123,6 +123,8 @@ mugshot
 thunar-archive-plugin
 file-roller
 alg-xfce-settings
+
+#ALG Apps
 alg-welcome
 
 #audio
