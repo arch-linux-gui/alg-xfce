@@ -126,6 +126,8 @@ alg-xfce-settings
 
 #ALG Apps
 alg-welcome
+alg-app-store
+alg-fastfetch-config
 
 #audio
 pulseaudio
