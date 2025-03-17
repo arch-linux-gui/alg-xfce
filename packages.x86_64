@@ -114,6 +114,7 @@ network-manager-applet
 base-devel
 pacman-contrib
 virtualbox-guest-utils
+lsb-release
 
 #ALG XFCE
 xfce4
@@ -128,6 +129,7 @@ alg-xfce-settings
 alg-welcome
 alg-app-store
 alg-fastfetch-config
+alg-hooks
 
 #audio
 pulseaudio
