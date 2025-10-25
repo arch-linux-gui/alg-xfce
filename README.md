@@ -1,2 +1,2 @@
-# alg-gnome-pure
+# alg-xfce
 ALG edition with customized  XFCE 4.

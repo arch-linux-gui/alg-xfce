@@ -10,7 +10,7 @@
 
 cd airootfs/etc/systemd/system/
 tput setaf 2
-echo "Enabling SDDM and Graphical Target.."
+echo "Enabling Lightdm and Graphical Target.."
 tput sgr0
 ln -sv /usr/lib/systemd/system/graphical.target default.target
 

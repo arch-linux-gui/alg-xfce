@@ -14,7 +14,7 @@ base
 broadcom-wl
 btrfs-progs
 clonezilla
-cloud-init
+#cloud-init
 cryptsetup
 darkhttpd
 ddrescue
@@ -33,7 +33,6 @@ exfatprogs
 f2fs-tools
 fatresize
 fsarchiver
-gnu-netcat
 gpart
 gpm
 gptfdisk
@@ -103,7 +102,7 @@ xfsprogs
 xl2tpd
 zsh
 
-#Arch Linux GUI XFCE Core
+#ALG XFCE Core
 xorg
 lightdm
 lightdm-gtk-greeter
@@ -114,8 +113,9 @@ network-manager-applet
 base-devel
 pacman-contrib
 virtualbox-guest-utils
+lsb-release
 
-#Arch Linux GUI XFCE
+#ALG XFCE
 xfce4
 xfce4-goodies
 xf86-video-intel
@@ -123,7 +123,12 @@ mugshot
 thunar-archive-plugin
 file-roller
 alg-xfce-settings
+
+#ALG Apps
 alg-welcome
+alg-app-store
+alg-fastfetch-config
+alg-hooks
 
 #audio
 pulseaudio
@@ -172,9 +177,13 @@ bluez-utils
 blueman
 
 #AUR Helper
-paru
+yay
 
 #NVIDIA drivers & settings
 nvidia
 nvidia-utils
 nvidia-settings
+#custom-installer-modules
+
+alg-set-once
+alg-logo
