@@ -9,6 +9,12 @@ jobs:
     container:
       image: archlinux:latest
       options: --privileged
+    outputs:
+      iso_name: ${{ steps.iso_info.outputs.iso_name }}
+      iso_size: ${{ steps.iso_info.outputs.iso_size }}
+      iso_sha256: ${{ steps.iso_info.outputs.iso_sha256 }}
+      release_tag: ${{ steps.iso_info.outputs.release_tag }}
+      artifact_name: ${{ steps.iso_info.outputs.artifact_name }}
     
     steps:
       - name: Checkout repository
@@ -73,12 +79,23 @@ jobs:
             /tmp/archiso-out/*.iso
             /tmp/archiso-out/SHA256SUMS
           retention-days: 30
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'workflow_dispatch'
+    
+    steps:
+      - name: Download ISO artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ needs.build.outputs.artifact_name }}
+          path: ./release-files
       
       - name: Create release notes
-        id: release_notes
         run: |
           BUILD_DATE=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
-          cat > /tmp/release-notes.md << EOF
+          cat > release-notes.md << EOF
           ## ALG XFCE Release
           
           **Build Date:** ${BUILD_DATE}
@@ -86,16 +103,16 @@ jobs:
           **Branch:** ${{ github.ref_name }}
           
           ### ISO Information
-          - **Filename:** ${{ steps.iso_info.outputs.iso_name }}
-          - **Size:** ${{ steps.iso_info.outputs.iso_size }}
-          - **SHA256:** \`${{ steps.iso_info.outputs.iso_sha256 }}\`
+          - **Filename:** ${{ needs.build.outputs.iso_name }}
+          - **Size:** ${{ needs.build.outputs.iso_size }}
+          - **SHA256:** \`${{ needs.build.outputs.iso_sha256 }}\`
           
           ### Installation
           1. Download the ISO file
           2. Verify the checksum using SHA256SUMS
           3. Write to USB using dd, Ventoy, or similar tools:
              \`\`\`bash
-             dd if=${{ steps.iso_info.outputs.iso_name }} of=/dev/sdX bs=4M status=progress
+             dd if=${{ needs.build.outputs.iso_name }} of=/dev/sdX bs=4M status=progress
              \`\`\`
           4. Boot from the USB drive
           
@@ -105,19 +122,18 @@ jobs:
           \`\`\`
           
           EOF
-          cat /tmp/release-notes.md
+          cat release-notes.md
       
       - name: Create release
-        if: github.event_name == 'workflow_dispatch'
         uses: softprops/action-gh-release@v1
         with:
-          tag_name: ${{ steps.iso_info.outputs.release_tag }}
-          name: ${{ steps.iso_info.outputs.release_tag }}
-          body_path: /tmp/release-notes.md
+          tag_name: ${{ needs.build.outputs.release_tag }}
+          name: ${{ needs.build.outputs.release_tag }}
+          body_path: release-notes.md
           draft: false
           prerelease: true
           files: |
-            /tmp/archiso-out/*.iso
-            /tmp/archiso-out/SHA256SUMS
+            ./release-files/*.iso
+            ./release-files/SHA256SUMS
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
