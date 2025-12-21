@@ -3,7 +3,7 @@
 
 iso_name="alg-xfce"
 iso_label="ALG_XFCE_$(date +%Y%m)"
-iso_publisher="DemonKiller <https://archlinuxgui.in>"
+iso_publisher="DemonKiller <https://archlinuxgui.org>"
 iso_application="ALG Live/Rescue CD"
 iso_version="$(date +%Y.%m)"
 install_dir="arch"
