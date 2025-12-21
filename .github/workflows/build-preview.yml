@@ -1,12 +1,6 @@
 name: Build and Release Preview
 
 on:
-  push:
-  #   branches:
-  #     - main
-  # pull_request:
-  #   branches:
-  #     - main
   workflow_dispatch:
 
 jobs:
@@ -35,7 +29,7 @@ jobs:
             echo "Error: profiledef.sh not found"
             exit 1
           fi
-          source profiledef.sh
+          source ./profiledef.sh
           echo "Building ISO: ${iso_name} version ${iso_version}"
       
       - name: Build ISO
@@ -53,7 +47,7 @@ jobs:
           ISO_SHA256=$(sha256sum "$ISO_PATH" | cut -d' ' -f1)
           
           # Get version from profiledef.sh (format: yyyy.mm)
-          source profiledef.sh
+          source $GITHUB_WORKSPACE/profiledef.sh
           RELEASE_VERSION="${iso_version}"
           RELEASE_TAG="alg-xfce-${RELEASE_VERSION}"
           
@@ -114,7 +108,7 @@ jobs:
           cat /tmp/release-notes.md
       
       - name: Create release
-        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        if: github.event_name == 'workflow_dispatch'
         uses: softprops/action-gh-release@v1
         with:
           tag_name: ${{ steps.iso_info.outputs.release_tag }}
@@ -127,31 +121,3 @@ jobs:
             /tmp/archiso-out/SHA256SUMS
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      
-      - name: Comment on PR with build info
-        if: github.event_name == 'pull_request'
-        uses: actions/github-script@v7
-        with:
-          script: |
-            const iso_name = '${{ steps.iso_info.outputs.iso_name }}';
-            const iso_size = '${{ steps.iso_info.outputs.iso_size }}';
-            const iso_sha256 = '${{ steps.iso_info.outputs.iso_sha256 }}';
-            
-            const comment = `## Build Preview Ready
-            
-            The ISO has been built successfully!
-            
-            **ISO Details:**
-            - Filename: \`${iso_name}\`
-            - Size: ${iso_size}
-            - SHA256: \`${iso_sha256}\`
-            
-            You can download the artifact from the [Actions tab](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
-            `;
-            
-            github.rest.issues.createComment({
-              issue_number: context.issue.number,
-              owner: context.repo.owner,
-              repo: context.repo.repo,
-              body: comment
-            });
