@@ -1,0 +1,157 @@
+name: Build and Release Preview
+
+on:
+  push:
+  #   branches:
+  #     - main
+  # pull_request:
+  #   branches:
+  #     - main
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    container:
+      image: archlinux:latest
+      options: --privileged
+    
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      
+      - name: Update system and install dependencies
+        run: |
+          pacman -Syu --noconfirm
+          pacman -S --noconfirm archiso git base-devel
+      
+      - name: Configure pacman for parallel downloads
+        run: |
+          sed -i 's/^#ParallelDownloads/ParallelDownloads/' /etc/pacman.conf
+      
+      - name: Validate profile
+        run: |
+          if [ ! -f profiledef.sh ]; then
+            echo "Error: profiledef.sh not found"
+            exit 1
+          fi
+          source profiledef.sh
+          echo "Building ISO: ${iso_name} version ${iso_version}"
+      
+      - name: Build ISO
+        run: |
+          mkdir -p /tmp/archiso-work
+          mkdir -p /tmp/archiso-out
+          mkarchiso -v -w /tmp/archiso-work -o /tmp/archiso-out .
+      
+      - name: Get ISO information
+        id: iso_info
+        run: |
+          ISO_PATH=$(find /tmp/archiso-out -name "*.iso" -type f | head -n 1)
+          ISO_NAME=$(basename "$ISO_PATH")
+          ISO_SIZE=$(du -h "$ISO_PATH" | cut -f1)
+          ISO_SHA256=$(sha256sum "$ISO_PATH" | cut -d' ' -f1)
+          
+          # Get version from profiledef.sh (format: yyyy.mm)
+          source profiledef.sh
+          RELEASE_VERSION="${iso_version}"
+          RELEASE_TAG="alg-xfce-${RELEASE_VERSION}"
+          
+          # Sanitize artifact name (replace / with -)
+          ARTIFACT_NAME="${RELEASE_TAG//\//-}"
+          
+          echo "iso_path=$ISO_PATH" >> $GITHUB_OUTPUT
+          echo "iso_name=$ISO_NAME" >> $GITHUB_OUTPUT
+          echo "iso_size=$ISO_SIZE" >> $GITHUB_OUTPUT
+          echo "iso_sha256=$ISO_SHA256" >> $GITHUB_OUTPUT
+          echo "release_tag=$RELEASE_TAG" >> $GITHUB_OUTPUT
+          echo "artifact_name=$ARTIFACT_NAME" >> $GITHUB_OUTPUT
+          
+          # Create checksums file
+          cd /tmp/archiso-out
+          sha256sum *.iso > SHA256SUMS
+      
+      - name: Upload ISO artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: ${{ steps.iso_info.outputs.artifact_name }}
+          path: |
+            /tmp/archiso-out/*.iso
+            /tmp/archiso-out/SHA256SUMS
+          retention-days: 30
+      
+      - name: Create release notes
+        id: release_notes
+        run: |
+          BUILD_DATE=$(date -u +"%Y-%m-%d %H:%M:%S UTC")
+          cat > /tmp/release-notes.md << EOF
+          ## ALG XFCE Release
+          
+          **Build Date:** ${BUILD_DATE}
+          **Commit:** ${{ github.sha }}
+          **Branch:** ${{ github.ref_name }}
+          
+          ### ISO Information
+          - **Filename:** ${{ steps.iso_info.outputs.iso_name }}
+          - **Size:** ${{ steps.iso_info.outputs.iso_size }}
+          - **SHA256:** \`${{ steps.iso_info.outputs.iso_sha256 }}\`
+          
+          ### Installation
+          1. Download the ISO file
+          2. Verify the checksum using SHA256SUMS
+          3. Write to USB using dd, Ventoy, or similar tools:
+             \`\`\`bash
+             dd if=${{ steps.iso_info.outputs.iso_name }} of=/dev/sdX bs=4M status=progress
+             \`\`\`
+          4. Boot from the USB drive
+          
+          ### Verification
+          \`\`\`bash
+          sha256sum -c SHA256SUMS
+          \`\`\`
+          
+          EOF
+          cat /tmp/release-notes.md
+      
+      - name: Create release
+        if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+        uses: softprops/action-gh-release@v1
+        with:
+          tag_name: ${{ steps.iso_info.outputs.release_tag }}
+          name: ${{ steps.iso_info.outputs.release_tag }}
+          body_path: /tmp/release-notes.md
+          draft: false
+          prerelease: true
+          files: |
+            /tmp/archiso-out/*.iso
+            /tmp/archiso-out/SHA256SUMS
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      
+      - name: Comment on PR with build info
+        if: github.event_name == 'pull_request'
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const iso_name = '${{ steps.iso_info.outputs.iso_name }}';
+            const iso_size = '${{ steps.iso_info.outputs.iso_size }}';
+            const iso_sha256 = '${{ steps.iso_info.outputs.iso_sha256 }}';
+            
+            const comment = `## Build Preview Ready
+            
+            The ISO has been built successfully!
+            
+            **ISO Details:**
+            - Filename: \`${iso_name}\`
+            - Size: ${iso_size}
+            - SHA256: \`${iso_sha256}\`
+            
+            You can download the artifact from the [Actions tab](https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}).
+            `;
+            
+            github.rest.issues.createComment({
+              issue_number: context.issue.number,
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              body: comment
+            });
