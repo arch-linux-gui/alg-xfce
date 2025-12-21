@@ -180,7 +180,7 @@ blueman
 yay
 
 #NVIDIA drivers & settings
-nvidia
+nvidia-open
 nvidia-utils
 nvidia-settings
 #custom-installer-modules
