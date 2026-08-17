@@ -23,7 +23,7 @@ jobs:
       - name: Update system and install dependencies
         run: |
           pacman -Syu --noconfirm
-          pacman -S --noconfirm archiso git base-devel
+          pacman -S --noconfirm archiso git base-devel grub efibootmgr
       
       - name: Configure pacman for parallel downloads
         run: |
